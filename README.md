@@ -82,7 +82,7 @@ This project contains the source code to create your own Washington DC Metro sig
 2. Open the [config.py](src/config.py) file located in the root of the _CIRCUITPY_ volume.
 3. Under the **Metro Configuration** section:
     1. Select your station and lines from the [Metro Station Codes table](#dc-metro-station-codes), and set the _metro_station_code_ value to the corresponding value in the table.
-    2. For _train_group_, the value needs to be either **'1'** or **'2'** or  **'3'**. This determines which platform's arrival times will be displayed. These typically fall in line with the values provided in the [Train Group table](#train-group-explanations), although single tracking and other events can cause these to change.
+    2. For _train_group_, the value needs to be either **'0'**, **'1'**, **'2'** or **'3'**. This determines which platform's arrival times will be displayed. These typically fall in line with the values provided in the [Train Group table](#train-group-explanations), although single tracking and other events can cause these to change. If the value is set to **'0'**, the board will alternate between the two primary train groups every refresh cycle.
     3. Set the _metro_api_key_ value to the API key you got from [Part 3](#part-3-getting-a-wmata-api-key).
 4. At the end, the first part of your configuration file should look similar this:
 
