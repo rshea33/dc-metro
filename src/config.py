@@ -5,11 +5,7 @@ config = {
 	# Network Configuration #
 	#########################
 
-	# WIFI Network SSID
-	'wifi_ssid': '<Your 2.4ghz WiFi SSID>',
-
-	# WIFI Password
-	'wifi_password': '<Your WiFi Password>',
+	# Moved to `settings.toml` in CircuitPython 10+
 
 	#########################
 	# Metro Configuration   #
