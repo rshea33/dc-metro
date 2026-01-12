@@ -50,7 +50,7 @@ This project contains the source code to create your own Washington DC Metro sig
     
     ![Matrix Connected via USB](img/usb-connected.jpg)
 
-2. Flash your _Matrix Portal_ with the latest release of CircuitPython 6.
+2. Flash your _Matrix Portal_ with the latest release of CircuitPython 10.
     - Download the [firmware from Adafruit](https://circuitpython.org/board/matrixportal_m4/).
     - Drag the downloaded _.uf2_ file into the root of the _MATRIXBOOT_ volume.
     - The board will automatically flash the version of CircuitPython and remount as _CIRCUITPY_.
