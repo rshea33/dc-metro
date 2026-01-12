@@ -1,6 +1,6 @@
 import displayio
 from adafruit_display_shapes.rect import Rect
-from adafruit_display_text.bitmap_label import Label
+from adafruit_display_text.label import Label
 from adafruit_matrixportal.matrix import Matrix
 
 from config import config
@@ -25,9 +25,11 @@ class TrainBoard:
 
 		self.parent_group = displayio.Group()
 
-		self.heading_label = Label(config['font'], anchor_point=(0,-30))
+		self.heading_label = Label(config['font'], anchor_point=(0, 0))
 		self.heading_label.color = config['heading_color']
 		self.heading_label.text=config['heading_text']
+		self.heading_label.x = 0
+		self.heading_label.y = config['text_y_buffer']
 		self.parent_group.append(self.heading_label)
 
 		self.trains = []
@@ -69,13 +71,13 @@ class Train:
 		
 		self.destination_label = Label(config['font'], anchor_point=(0,0))
 		self.destination_label.x =  config['train_line_width'] + 2
-		self.destination_label.y = y
+		self.destination_label.y = y + config['text_y_buffer']
 		self.destination_label.color = config['text_color']
 		self.destination_label.text = config['loading_destination_text'][:config['destination_max_characters']]
 
 		self.min_label = Label(config['font'], anchor_point=(0,0))
 		self.min_label.x = config['matrix_width'] - (config['min_label_characters'] * config['character_width']) + 1
-		self.min_label.y = y
+		self.min_label.y = y + config['text_y_buffer']
 		self.min_label.color = config['text_color']
 		self.min_label.text = config['loading_min_text']
 
