@@ -5,11 +5,7 @@ config = {
 	# Network Configuration #
 	#########################
 
-	# WIFI Network SSID
-	'wifi_ssid': '<Your 2.4ghz WiFi SSID>',
-
-	# WIFI Password
-	'wifi_password': '<Your WiFi Password>',
+	# Moved to `settings.toml` in CircuitPython 10+
 
 	#########################
 	# Metro Configuration   #
@@ -18,7 +14,7 @@ config = {
 	# Metro Station Code
 	'metro_station_code': 'D02',
 
-	# Metro Train Group
+	# Metro Train Group (set to '0' to alternate between 1 and 2)
 	'train_group': '2',
 
 	# API Key for WMATA
@@ -42,6 +38,7 @@ config = {
 	'character_height': 7,
 	'text_padding': 1,
 	'text_color': 0xFF7500,
+    'text_y_buffer': 3,
 
 	'loading_destination_text': 'Loading',
 	'loading_min_text': '---',

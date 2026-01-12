@@ -50,7 +50,7 @@ This project contains the source code to create your own Washington DC Metro sig
     
     ![Matrix Connected via USB](img/usb-connected.jpg)
 
-2. Flash your _Matrix Portal_ with the latest release of CircuitPython 6.
+2. Flash your _Matrix Portal_ with the latest release of CircuitPython 10.
     - Download the [firmware from Adafruit](https://circuitpython.org/board/matrixportal_m4/).
     - Drag the downloaded _.uf2_ file into the root of the _MATRIXBOOT_ volume.
     - The board will automatically flash the version of CircuitPython and remount as _CIRCUITPY_.
@@ -77,11 +77,12 @@ This project contains the source code to create your own Washington DC Metro sig
 4. Under the _Subscriptions_ section on your profile, select the **show** button beside the _Primary Key_. This is the key that allows the board to communicate with WMATA.
 
 ## Part 4: Configuring the Board
-1. Open the [config.py](src/config.py) file located in the root of the _CIRCUITPY_ volume.
-2. Fill in your WiFi SSID and password under the **Network Configuration** section.
+1. Open the [settings.toml](src/settings.toml) file located in the root of the _CIRCUITPY_ volume.
+    1. Fill in your WiFi SSID and password within their respective fields.
+2. Open the [config.py](src/config.py) file located in the root of the _CIRCUITPY_ volume.
 3. Under the **Metro Configuration** section:
     1. Select your station and lines from the [Metro Station Codes table](#dc-metro-station-codes), and set the _metro_station_code_ value to the corresponding value in the table.
-    2. For _train_group_, the value needs to be either **'1'** or **'2'** or  **'3'**. This determines which platform's arrival times will be displayed. These typically fall in line with the values provided in the [Train Group table](#train-group-explanations), although single tracking and other events can cause these to change.
+    2. For _train_group_, the value needs to be either **'0'**, **'1'**, **'2'** or **'3'**. This determines which platform's arrival times will be displayed. These typically fall in line with the values provided in the [Train Group table](#train-group-explanations), although single tracking and other events can cause these to change. If the value is set to **'0'**, the board will alternate between the two primary train groups every refresh cycle.
     3. Set the _metro_api_key_ value to the API key you got from [Part 3](#part-3-getting-a-wmata-api-key).
 4. At the end, the first part of your configuration file should look similar this:
 
@@ -90,11 +91,7 @@ This project contains the source code to create your own Washington DC Metro sig
 # Network Configuration #
 #########################
 
-# WIFI Network SSID
-'wifi_ssid': 'Grindr Pickup Zone',
-
-# WIFI Password
-'wifi_password': 'MyMetroBoardBringsTheBoisToTheNavyYard',
+# Moved to `settings.toml` in CircuitPython 10+
 
 #########################
 # Metro Configuration   #

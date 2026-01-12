@@ -23,19 +23,20 @@ class TrainBoard:
 		
 		self.display = Matrix().display
 
-		self.parent_group = displayio.Group(max_size=5)
+		self.parent_group = displayio.Group()
 
-		self.heading_label = Label(config['font'], max_glyphs=len(config['heading_text']), anchor_point=(0,0))
+		self.heading_label = Label(config['font'], anchor_point=(0, 0))
 		self.heading_label.color = config['heading_color']
 		self.heading_label.text=config['heading_text']
+		self.heading_label.x = 0
+		self.heading_label.y = config['text_y_buffer']
 		self.parent_group.append(self.heading_label)
 
 		self.trains = []
 		for i in range(config['num_trains']):
 			self.trains.append(Train(self.parent_group, i))
 
-		self.display.show(self.parent_group)
-
+		self.display.root_group = self.parent_group
 	def refresh(self) -> bool:
 		print('Refreshing train information...')
 		train_data = self.get_new_data()
@@ -68,19 +69,19 @@ class Train:
 
 		self.line_rect = Rect(0, y, config['train_line_width'], config['train_line_height'], fill=config['loading_line_color'])
 		
-		self.destination_label = Label(config['font'], max_glyphs=config['destination_max_characters'], anchor_point=(0,0))
+		self.destination_label = Label(config['font'], anchor_point=(0,0))
 		self.destination_label.x =  config['train_line_width'] + 2
-		self.destination_label.y = y
+		self.destination_label.y = y + config['text_y_buffer']
 		self.destination_label.color = config['text_color']
 		self.destination_label.text = config['loading_destination_text'][:config['destination_max_characters']]
 
-		self.min_label = Label(config['font'], max_glyphs=config['min_label_characters'], anchor_point=(0,0))
+		self.min_label = Label(config['font'], anchor_point=(0,0))
 		self.min_label.x = config['matrix_width'] - (config['min_label_characters'] * config['character_width']) + 1
-		self.min_label.y = y
+		self.min_label.y = y + config['text_y_buffer']
 		self.min_label.color = config['text_color']
 		self.min_label.text = config['loading_min_text']
 
-		self.group = displayio.Group(max_size=3)
+		self.group = displayio.Group()
 		self.group.append(self.line_rect)
 		self.group.append(self.destination_label)
 		self.group.append(self.min_label)

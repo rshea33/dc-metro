@@ -2,7 +2,6 @@ import board
 from adafruit_matrixportal.network import Network
 
 from config import config
-from secrets import secrets
 
 # Keeping a global reference for this
 _network = Network(status_neopixel=board.NEOPIXEL)
