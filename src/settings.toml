@@ -1,2 +1,2 @@
-CIRCUITPY_WIFI_SSID = '<Your 2.4ghz WiFi SSID>'
-CIRCUITPY_WIFI_PASSWORD = '<Your WiFi Password>'
+CIRCUITPY_WIFI_SSID = "<Your 2.4ghz WiFi SSID>"
+CIRCUITPY_WIFI_PASSWORD = "<Your WiFi Password>"
